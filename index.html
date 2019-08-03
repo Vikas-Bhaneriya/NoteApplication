@@ -1,0 +1,133 @@
+                                                                                                      
+<html>                                                             <!--LS = Local storage--->
+    <head>
+        
+    <title> User Information    </title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+     
+    </head>
+  
+<body>     
+              <header > 
+                 
+                  <div  style=" float:left;width:50%;"class="headerButton">
+                     <ul style="list-style: none;"> 
+                         <li> <a href="index.html"><img  src="images/addNote2.png"> </a>
+                        
+                          
+                         </li>
+                         <li style="margin-left: 2px"> 
+                            <iframe src="https://freesecure.timeanddate.com/clock/i6upqgy1/n1648/fn7/fs18/tct/pc7673ff/ts1" frameborder="0" width="127" height="27" allowTransparency="true"></iframe>
+ 
+                          
+                         </li>
+                         
+                         
+                  
+                          
+                    </ul>
+                </div>
+                  
+                  
+                <div style="text-align:center; float:right; width :50%;">
+                     <div style="float: left;"> <p id="task" >  
+                    
+                       </p>
+                         
+                    </div>
+                    
+                </div>
+                    
+                  
+                 
+              </header>
+    
+      <div class="wrapper clr">     
+                 <div class="UserInfo" id="listDiv">
+                
+            
+                 <ol id="noteList">
+                                                    <!-- To show the tasks Present in the LS ShowList() will be called-->
+                     
+                 </ol>
+
+                
+                  </div>
+           <div class="UserInput"  id ="inputDiv">
+
+	  	       <form name="FormData" id="FormData"  class="forms">
+	  			
+	  			<div>
+					<label for="about">About :</label> 
+					<input type="text" name="about" required="required" id="about">
+				</div>
+				<div>
+					<label for="note">Note :</label> 
+					<textarea name="note" id="note" cols="40" rows="10"></textarea>
+				</div>
+            
+      			<fieldset for="priority" class="radio" id ="priority"  ><legend>Priority</legend>
+					<input type="radio" name="priority" value="1" checked="checked" id="priority"> <label for="cheese-yes">1</label>
+					<input type="radio" name="priority" value="2" id="priority"> <label for="priority">2</label>
+                    <input type="radio" name="priority" value="3" id="priority"> <label for="priority">3</label> 
+                    <input type="radio" name="priority" value="4" id="priority"> <label for="priority">4</label> 
+                    <input type="radio" name="priority" value="5" id="priority"> <label for="priority">5</label>
+                  
+				</fieldset>                   
+				<div><label for="type">Type</label>
+					<select name="type" id="type">
+				
+							<option value="Meeting">Meeting</option>
+							<option value="Task">Task</option>
+							<option value="Reminder">Reminder</option>
+
+					</select>
+				</div>
+				
+	  			<div class="buttons">
+	  				<input type="hidden" name="form" value="contact_form">    
+                    <a class="button" id="myLink" href="javascript:SaveInfo();">Add</a>
+                                                                                     
+	  			</div>
+                                                          <!--On the click of Add link the function SaaceInfo() will be called-->
+	  		</form>
+               
+          </div>
+         </div>
+    
+         <footer >
+            <p> @copyright Heart_n_Tech.
+          
+              </p>
+           </footer>
+    
+         
+    
+ </body>
+<script>
+                         
+  var NoteCount,   noteExist;
+     
+      if(localStorage.getItem("noteExist"))
+          { 
+              if(JSON.parse(localStorage.getItem("noteExist")).length==0)
+                  {
+                  ShowList(); 
+                  Instruction(3);
+                  localStorage.setItem("NoteCount",0);  
+        
+                  }
+              else
+                  
+                ShowList();  
+              
+          }
+      else {
+          
+          document.getElementById("task").innerHTML="No Notes Available";
+          Instruction(1);
+         }
+    
+</script>
+</html>
